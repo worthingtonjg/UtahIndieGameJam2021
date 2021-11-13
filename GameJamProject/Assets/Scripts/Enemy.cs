@@ -6,19 +6,20 @@ using System.Linq;
 
 public class Enemy : MonoBehaviour
 {
-    public int currentWayPoint;
+    public Animator animator; 
+    private int currentWayPoint;
     private NavMeshAgent agent;
     private GameObject player;
     private Vector3? lastSeenAt;
     private bool canSeePlayer;
     private List<GameObject> waypoints;
-    
     private List<GameObject> sightlines;
 
     private enum EnumState
     {
         Idle,
         Chasing,
+        Attacking,
         Patrolling,
     }
 
@@ -42,6 +43,7 @@ public class Enemy : MonoBehaviour
             Debug.DrawRay(transform.position, sightLineDirection, Color.green);            
         }
 
+        bool playerSighted = false;
         foreach(var sightline in sightlines)
         {
             Vector3 sightLineDirection = sightline.transform.position - transform.position;
@@ -50,14 +52,26 @@ public class Enemy : MonoBehaviour
             {
                 if(sightLineHit.collider.gameObject == player)
                 {
-                    state = EnumState.Chasing;
+                    playerSighted = true;
                     break;
                 }
             }
         }
 
+        if(playerSighted)
+        {
+            state = EnumState.Chasing;            
+        }
+
+        if(state == EnumState.Attacking && !playerSighted)
+        {
+            state = EnumState.Idle;
+            canSeePlayer = false;
+        }
+
         if(state == EnumState.Chasing)
         {
+            animator.SetBool("isWalking", true);
             Vector3 direction = player.transform.position - transform.position;
             RaycastHit hit;
             canSeePlayer = false;
@@ -80,13 +94,29 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        if(!canSeePlayer)
+        if(canSeePlayer)
+        {
+            if(state == EnumState.Chasing)
+            {
+                if(agent.remainingDistance <= agent.stoppingDistance)
+                {
+                    state = EnumState.Attacking;
+                }
+            }
+
+            if(state == EnumState.Attacking)
+            {
+                animator.SetTrigger("Attack");
+            }
+        }
+        else
         {
             if(state == EnumState.Chasing)
             {
                 if(agent.remainingDistance <= agent.stoppingDistance)
                 {
                     state = EnumState.Idle;
+                    animator.SetBool("isWalking", false);
                 }
             }
 
@@ -104,6 +134,7 @@ public class Enemy : MonoBehaviour
                     agent.stoppingDistance = 0;
                     agent.speed = 1;
                     agent.SetDestination(waypoints[currentWayPoint].transform.position);
+                    animator.SetBool("isWalking", true);
                 }
 
                 state = EnumState.Patrolling;
