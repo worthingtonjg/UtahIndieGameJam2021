@@ -103,11 +103,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6841141398015280779}
   - component: {fileID: 6841141398015280776}
-  - component: {fileID: 6841141398015280782}
-  - component: {fileID: 6841141398015280783}
-  - component: {fileID: 6841141398015280780}
   - component: {fileID: 6841141398015280781}
-  - component: {fileID: -3321243021890813845}
+  - component: {fileID: 6337646853502101199}
   m_Layer: 0
   m_Name: Densoptere
   m_TagString: Bug
@@ -150,57 +147,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!143 &6841141398015280782
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6841141398015280818}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 5
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &6841141398015280783
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6841141398015280818}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.6593473, y: 1.822751, z: 0.57505}
-  m_Center: {x: -0.009710491, y: 0.1142236, z: -0.2124847}
---- !u!114 &6841141398015280780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6841141398015280818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e470cd4e0a03de40910c831f3ec4073, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  floorPlane: {fileID: 4008003234588062757, guid: 81adc2af364ad2942892c5225e6a4e8a, type: 3}
-  WeaponState: 0
-  wasAttacking: 0
-  nonCombat: 0
-  movementTargetPosition: {x: 0, y: 0, z: 0}
-  attackPos: {x: 0, y: 0, z: 0}
-  lookAtPos: {x: 0, y: 0, z: 0}
-  rightButtonDown: 0
 --- !u!114 &6841141398015280781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,22 +160,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BugSpeed: 5
---- !u!54 &-3321243021890813845
-Rigidbody:
+--- !u!65 &6337646853502101199
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6841141398015280818}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
+  m_Size: {x: 2.5913532, y: 1.4876864, z: 1}
+  m_Center: {x: -0.02313566, y: 0.24384269, z: -0.000000040753108}
 --- !u!1 &6841141398065010727
 GameObject:
   m_ObjectHideFlags: 0

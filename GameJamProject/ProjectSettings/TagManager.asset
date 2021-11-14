@@ -12,6 +12,8 @@ TagManager:
   - Bug
   - Monster
   - PlayerModel
+  - GhostModel
+  - Savepoint
   layers:
   - Default
   - TransparentFX
