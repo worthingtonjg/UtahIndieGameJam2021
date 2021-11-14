@@ -15,7 +15,7 @@ public class BulletsFly : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.Translate(-Vector3.up * BulletSpeed * Time.deltaTime);        
+        transform.Translate(-Vector3.up * BulletSpeed * Time.deltaTime, Space.Self);        
 
         if (transform.position.z > 10.0f) {
             // Destroy object when it gets too far away
