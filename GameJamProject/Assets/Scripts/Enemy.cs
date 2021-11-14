@@ -38,8 +38,16 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         waypoints = GameObject.FindGameObjectsWithTag("Waypoint").ToList();
-        sightlines = GameObject.FindGameObjectsWithTag("Sightline").ToList();
-        
+
+        sightlines = new List<GameObject>();
+        foreach(Transform child in transform)
+        {
+            if(child.tag == "Sightline")
+            {
+                sightlines.Add(child.gameObject);
+            }
+        }
+
         if(waypoints.Count > 0)
         {
             currentWayPoint = Random.Range(0, waypoints.Count);
