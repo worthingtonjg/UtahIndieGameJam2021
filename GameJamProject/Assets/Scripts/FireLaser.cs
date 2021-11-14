@@ -6,6 +6,9 @@ public class FireLaser : MonoBehaviour
 {
     public GameObject LaserBullet;
 
+    [SerializeField]
+    private float AimSpeed = 20.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +19,27 @@ public class FireLaser : MonoBehaviour
     void Update()
     {
         if (Input.GetButtonDown("Fire1")) {
-            Instantiate(LaserBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            Instantiate(LaserBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+        }
+
+        if(Input.GetAxis("Horizontal") < 0 || Input.GetAxis("Mouse X") < 0)
+        {
+            transform.Rotate(-Vector3.forward * AimSpeed * Time.deltaTime);
+        }
+
+        if(Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Mouse X") > 0)
+        {
+            transform.Rotate(Vector3.forward * AimSpeed * Time.deltaTime);
+        }
+
+        if (Input.GetAxis("Vertical") > 0 || Input.GetAxis("Mouse Y") > 0) 
+        {
+            transform.Rotate(Vector3.left * AimSpeed * Time.deltaTime);
+        }
+
+        if (Input.GetAxis("Vertical") < 0 || Input.GetAxis("Mouse Y") < 0)
+        {
+            transform.Rotate(-Vector3.left * AimSpeed * Time.deltaTime);
         }
     }
 }

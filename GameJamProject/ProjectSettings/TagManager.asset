@@ -8,6 +8,9 @@ TagManager:
   - Vision
   - Sightline
   - Ring
+  - LaserBullet
+  - Bug
+  - Monster
   - PlayerModel
   layers:
   - Default
