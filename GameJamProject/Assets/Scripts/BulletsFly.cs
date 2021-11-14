@@ -29,12 +29,12 @@ public class BulletsFly : MonoBehaviour
         if (collision.gameObject.tag == "Bug" || collision.gameObject.tag == "Monster")
         {
             //Debug.Log(gameObject.tag + " hit: " + collision.gameObject.tag);
-            if (collision.gameObject.tag == "Bug")
+            if (collision.gameObject.tag == "Bug" && StartBugRoom.BugCount > 0)
             {
                 StartBugRoom.BugCount--;
                 Debug.Log(StartBugRoom.BugCount + " bugs left.");
             }
-            else if (collision.gameObject.tag == "Monster")
+            else if (collision.gameObject.tag == "Monster" && StartBugRoom.MonsterCount > 0)
             {
                 StartBugRoom.MonsterCount--;
                 Debug.Log(StartBugRoom.MonsterCount + " monsters left.");
@@ -42,7 +42,7 @@ public class BulletsFly : MonoBehaviour
             Destroy(gameObject);
             Destroy(collision.gameObject);
         }
-        if (StartBugRoom.BugCount == 0 && StartBugRoom.MonsterCount == 0)
+        if (StartBugRoom.BugCount <= 0 && StartBugRoom.MonsterCount <= 0)
         // if (GameObject.FindWithTag("Bug") == null && GameObject.FindWithTag("Monster") == null)
         {
             Cursor.visible = true;
