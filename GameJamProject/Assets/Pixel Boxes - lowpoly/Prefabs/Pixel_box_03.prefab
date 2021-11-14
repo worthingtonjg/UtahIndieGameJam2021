@@ -14,11 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-<<<<<<< HEAD
-  m_StaticEditorFlags: 0
-=======
   m_StaticEditorFlags: 4294967295
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_IsActive: 1
 --- !u!4 &6753738007591156033
 Transform:
@@ -48,11 +44,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-<<<<<<< HEAD
-  m_StaticEditorFlags: 0
-=======
   m_StaticEditorFlags: 4294967295
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_IsActive: 1
 --- !u!4 &6753738007591156037
 Transform:
@@ -84,11 +76,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-<<<<<<< HEAD
-  m_StaticEditorFlags: 0
-=======
   m_StaticEditorFlags: 4294967295
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_IsActive: 1
 --- !u!4 &6753738007591156039
 Transform:
@@ -120,11 +108,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-<<<<<<< HEAD
-  m_StaticEditorFlags: 0
-=======
   m_StaticEditorFlags: 4294967295
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_IsActive: 1
 --- !u!4 &6753738007591156041
 Transform:
@@ -171,20 +155,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6753738007591156043}
   - component: {fileID: 6753738007587678317}
-<<<<<<< HEAD
-=======
   - component: {fileID: 4460160298624036543}
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_Layer: 0
   m_Name: Pixel_box_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-<<<<<<< HEAD
-  m_StaticEditorFlags: 0
-=======
   m_StaticEditorFlags: 4294967295
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_IsActive: 1
 --- !u!4 &6753738007591156043
 Transform:
@@ -214,11 +191,8 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-<<<<<<< HEAD
-=======
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -230,10 +204,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-<<<<<<< HEAD
-=======
   m_ReceiveGI: 1
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -260,8 +231,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00004307041, y: 0.010340901, z: 0.0055808914}
     m_Extent: {x: 0.010002326, y: 0.010925822, z: 0.010157764}
   m_DirtyAABB: 0
-<<<<<<< HEAD
-=======
 --- !u!64 &4460160298624036543
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -276,7 +245,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 00fe0442ea133d44e90b74ebbc40f3ba, type: 3}
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
 --- !u!1 &6753738007590856045
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,11 +259,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-<<<<<<< HEAD
-  m_StaticEditorFlags: 0
-=======
   m_StaticEditorFlags: 4294967295
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_IsActive: 1
 --- !u!4 &6753738007591156045
 Transform:
@@ -326,11 +290,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-<<<<<<< HEAD
-  m_StaticEditorFlags: 0
-=======
   m_StaticEditorFlags: 4294967295
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_IsActive: 1
 --- !u!4 &6753738007591156047
 Transform:

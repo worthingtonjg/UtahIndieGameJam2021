@@ -1,44 +1,6 @@
 fileFormatVersion: 2
 guid: 2ef14ad9fceea60478230318f53c856e
 ModelImporter:
-<<<<<<< HEAD
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Down
-    100002: Down_end
-    100004: Left
-    100006: Left_end
-    100008: //RootNode
-    100010: Pixel_box_01
-    100012: Pixel_box_01_Armature
-    100014: Right
-    100016: Right_end
-    100018: UP
-    100020: UP_end
-    400000: Down
-    400002: Down_end
-    400004: Left
-    400006: Left_end
-    400008: //RootNode
-    400010: Pixel_box_01
-    400012: Pixel_box_01_Armature
-    400014: Right
-    400016: Right_end
-    400018: UP
-    400020: UP_end
-    2100000: Pixel_box
-    4300000: Pixel_box_01
-    7400000: Pixel_box_01_Armature|Case_03_ArmatureAction
-    7400002: Pixel_box_01_Armature|Case_04_ArmatureAction
-    7400004: Pixel_box_01_Armature|Cube.008Action
-    7400006: Pixel_box_01_Armature|humanitarian_box_01|humanitarian_box_01|Cube.002Action.002|huma
-    7400008: Pixel_box_01_Armature|humanitarian_box_01|humanitarian_box_01|Cube.002Action|humanita
-    7400010: Pixel_box_01_Armature|humanitarian_box_01|humanitarian_box_01|Cube.008Action|humanita
-    7400012: Pixel_box_01_Armature|humanitarian_box_01|humanitarian_box_01|CubeAction|humanitarian
-    7400014: Pixel_box_01_Armature
-    9500000: //RootNode
-    13700000: Pixel_box_01
-=======
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
@@ -143,7 +105,6 @@ ModelImporter:
   - first:
       137: 13700000
     second: Pixel_box_01
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -151,11 +112,7 @@ ModelImporter:
       name: Pixel_box
     second: {fileID: 2100000, guid: df5b308118049cb479c4bb0292bc2fa3, type: 2}
   materials:
-<<<<<<< HEAD
-    importMaterials: 1
-=======
     materialImportMode: 1
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -184,10 +141,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Pixel_box_01_Armature
       takeName: Pixel_box_01_Armature|Pixel_box_01_ArmatureAction
-<<<<<<< HEAD
-=======
       internalID: 0
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
       firstFrame: 0
       lastFrame: 85
       wrapMode: 0
@@ -218,27 +172,13 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-<<<<<<< HEAD
-    addColliders: 0
-    useSRGBMaterialColor: 1
-=======
     addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
-<<<<<<< HEAD
-    swapUVChannels: 0
-    generateSecondaryUV: 0
-    useFileUnits: 1
-    optimizeMeshForGPU: 1
-    keepQuads: 0
-    weldVertices: 1
-    preserveHierarchy: 0
-=======
     fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -251,23 +191,15 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     meshOptimizationFlags: -1
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-<<<<<<< HEAD
-    secondaryUVPackMargin: 4
-    useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
-=======
     secondaryUVMarginMethod: 0
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -276,17 +208,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-<<<<<<< HEAD
-  importAnimation: 1
-  copyAvatar: 0
-  humanDescription:
-    serializedVersion: 2
-=======
   referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
     human: []
     skeleton: []
     armTwist: 0.5
@@ -296,25 +221,17 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-<<<<<<< HEAD
-=======
     globalScale: 1
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-<<<<<<< HEAD
-  animationType: 2
-  humanoidOversampling: 1
-=======
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
   avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 0
->>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   additionalBone: 0
   userData: 
   assetBundleName: 
