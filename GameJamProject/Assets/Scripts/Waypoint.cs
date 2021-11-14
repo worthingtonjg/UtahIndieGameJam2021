@@ -5,7 +5,7 @@ using UnityEngine;
 public class Waypoint : MonoBehaviour
 {
     public GameObject body;
-
+    public GameObject smoke;
     // Start is called before the first frame update
     void Start()
     {

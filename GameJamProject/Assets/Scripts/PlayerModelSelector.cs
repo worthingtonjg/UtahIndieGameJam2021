@@ -9,6 +9,16 @@ public class PlayerModelSelector : MonoBehaviour
     
     public Animator animator;
 
+    private bool reincarnated;
+
+    private bool canReincarnate;
+
+    private bool canLeaveBody;
+
+    private string bodyName;
+
+    private Waypoint script;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +39,16 @@ public class PlayerModelSelector : MonoBehaviour
                 animator.SetBool("isWalking", false);
             }
         }
+
+        if(Input.GetKey(KeyCode.R))
+        {
+            Reincarnate();
+        }
+
+        if(Input.GetKey(KeyCode.L))
+        {
+            LeaveBody();            
+        }
     }    
 
     public void ActivateGhost()
@@ -36,30 +56,66 @@ public class PlayerModelSelector : MonoBehaviour
         playerModels.ForEach(p => p.SetActive(false));
         ghostModel.SetActive(true);
         animator = ghostModel.GetComponent<Animator>();
+        reincarnated = false;
     }
 
-    public void Reincarnate(string name)
+    public void LeaveBody()
     {
-        print(name);
-        print(playerModels.Count);
-        var body = playerModels.FirstOrDefault(p => name.Contains(p.name));
+        if(!reincarnated) return;
+        ActivateGhost();        
+    }
+
+    public void Reincarnate()
+    {
+        if(reincarnated) return;
+
+        var body = playerModels.FirstOrDefault(p => bodyName.Contains(p.name));
         if(body != null)
         {
             playerModels.ForEach(p => p.SetActive(false));
             ghostModel.SetActive(false);
             body.SetActive(true);
+            script.body.SetActive(false);
             animator = body.GetComponent<Animator>();
+            reincarnated = true;
+            canReincarnate = false;
         }
     }
 
     private void OnTriggerEnter(Collider other) 
     {
-        if(other.tag != "Waypoint") return;
-
-        var script = other.GetComponent<Waypoint>();
-        if(script.body != null && script.body.activeSelf)
+        if(other.tag == "Waypoint") 
         {
-            Reincarnate(script.body.name);
+            if(reincarnated) return;
+
+            script = other.GetComponent<Waypoint>();
+            if(script.body != null && script.body.activeSelf)
+            {
+                bodyName = script.body.name;
+                script.smoke.SetActive(true);
+                canReincarnate = true;
+            }
+        }
+
+        if(other.tag == "Savepoint")
+        {
+            canLeaveBody = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other) 
+    {
+        if(other.tag == "Waypoint") 
+        {
+            script.smoke.SetActive(false);
+            canReincarnate = false;
+            script = null;
+            bodyName = string.Empty;
+        }
+
+        if(other.tag == "Savepoint")
+        {
+            canLeaveBody = false;
         }
     }
 }
