@@ -164,6 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1909829966390369850}
   - component: {fileID: 1909829966402359068}
+  - component: {fileID: 7646488371941966302}
   m_Layer: 0
   m_Name: Pixel_box_04
   m_TagString: Untagged
@@ -239,6 +240,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00023398176, y: 0.009836773, z: -0.0056607774}
     m_Extent: {x: 0.020009037, y: 0.011150871, z: 0.010084936}
   m_DirtyAABB: 0
+--- !u!64 &7646488371941966302
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909829966390854170}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 9a90bc94ac048ff4baa900d6d7317b36, type: 3}
 --- !u!1 &1909829966390854172
 GameObject:
   m_ObjectHideFlags: 0
