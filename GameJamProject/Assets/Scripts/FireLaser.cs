@@ -7,7 +7,7 @@ public class FireLaser : MonoBehaviour
     public GameObject LaserBullet;
 
     [SerializeField]
-    private float AimSpeed = 20.0f;
+    private float AimSpeed = 40.0f;
 
     // Start is called before the first frame update
     void Start()
