@@ -11,6 +11,8 @@ TagManager:
   - LaserBullet
   - Bug
   - Monster
+=======
+  - PlayerModel
   layers:
   - Default
   - TransparentFX
