@@ -81,10 +81,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 23697081619688218, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
+    - {fileID: 90106560, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
 --- !u!1 &5487478897270663856 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1504609043805358, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
+  m_PrefabInstance: {fileID: 5485991915026505246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5487232081054451186 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1328304144587756, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
   m_PrefabInstance: {fileID: 5485991915026505246}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1667479257
@@ -99,3 +105,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed533425bdc11444c887a2b9154f1858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8308841550916215050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487232081054451186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9d20421a8e3e44e88315dc70ee11e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseHorizontalAxis: Mouse X
+  mouseVerticalAxis: Mouse Y
+  invertHorizontalInput: 0
+  invertVerticalInput: 0
+  mouseInputMultiplier: 0.01

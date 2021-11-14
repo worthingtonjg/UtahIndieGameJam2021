@@ -6,10 +6,11 @@ using System.Linq;
 
 public class Enemy : MonoBehaviour
 {
+    public Animator animator; 
+    public GameObject EnemyPrefab;
+    public GameObject BloodyMessPrefab;
     private static readonly int IsWalking = Animator.StringToHash("isWalking");
     private static readonly int Attack = Animator.StringToHash("Attack");
-    
-    public Animator animator; 
     private int currentWayPoint;
     private NavMeshAgent agent;
     private GameObject player;
@@ -153,10 +154,30 @@ public class Enemy : MonoBehaviour
         if(state == EnumState.Chasing) return;
         if(!other.CompareTag("Waypoint")) return;
 
-        print("arrived at waypoint");
+        var script = other.GetComponent<Waypoint>();
+        if(script.body != null)
+        {
+            if(script.body.activeSelf)
+            {
+                script.body.SetActive(false);
+                if(EnemyPrefab != null)
+                {
+                    GameObject.Instantiate(BloodyMessPrefab, other.transform.position, Quaternion.identity);
+                    StartCoroutine("HatchEnemy", other.transform.position);
+
+                }
+            }
+        }
+
         if(state == EnumState.Patrolling)
         {
             state = EnumState.Idle;
         }
+    }
+
+    private IEnumerator HatchEnemy(Vector3 position)
+    {
+        yield return new WaitForSeconds(3f);
+        GameObject.Instantiate(EnemyPrefab, position, Quaternion.identity);        
     }
 }
