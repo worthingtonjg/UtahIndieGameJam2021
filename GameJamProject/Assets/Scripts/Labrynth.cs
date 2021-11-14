@@ -50,7 +50,7 @@ public class Labrynth : MonoBehaviour
     {
         if(PanelLab.activeSelf && Input.GetKey(KeyCode.E))
         {
-            
+
         }    
     }
 
@@ -112,9 +112,10 @@ public class Labrynth : MonoBehaviour
 
             var anim = body.GetComponent<Animator>();
             anim.SetTrigger("die");
+            ++bodiesRemaining;
         }
-
-        bodiesRemaining = bodyPrefabs.Count;
+        
+        BodiesRemaining.text = bodiesRemaining.ToString();
     }
 
     public void TeleportBody() 
