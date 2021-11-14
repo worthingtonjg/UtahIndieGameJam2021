@@ -35,6 +35,11 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         waypoints = GameObject.FindGameObjectsWithTag("Waypoint").ToList();
         sightlines = GameObject.FindGameObjectsWithTag("Sightline").ToList();
+        
+        if(waypoints.Count > 0)
+        {
+            currentWayPoint = Random.Range(0, waypoints.Count);
+        }
     }
 
     // Update is called once per frame
