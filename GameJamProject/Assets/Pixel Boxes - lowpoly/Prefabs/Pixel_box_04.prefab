@@ -14,7 +14,11 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
+<<<<<<< HEAD
+  m_StaticEditorFlags: 0
+=======
   m_StaticEditorFlags: 4294967295
+>>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_IsActive: 1
 --- !u!4 &1909829966390369840
 Transform:
@@ -44,7 +48,11 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
+<<<<<<< HEAD
+  m_StaticEditorFlags: 0
+=======
   m_StaticEditorFlags: 4294967295
+>>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_IsActive: 1
 --- !u!4 &1909829966390369844
 Transform:
@@ -76,7 +84,11 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
+<<<<<<< HEAD
+  m_StaticEditorFlags: 0
+=======
   m_StaticEditorFlags: 4294967295
+>>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_IsActive: 1
 --- !u!4 &1909829966390369846
 Transform:
@@ -103,13 +115,20 @@ GameObject:
   m_Component:
   - component: {fileID: 1909829966390369848}
   - component: {fileID: 1909829966398157276}
+<<<<<<< HEAD
+=======
   - component: {fileID: 2734777192719133852}
+>>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_Layer: 0
   m_Name: Pixel_box_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
+<<<<<<< HEAD
+  m_StaticEditorFlags: 0
+=======
   m_StaticEditorFlags: 4294967295
+>>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_IsActive: 1
 --- !u!4 &1909829966390369848
 Transform:
@@ -146,6 +165,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+<<<<<<< HEAD
+=======
 --- !u!33 &2734777192719133852
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -154,6 +175,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1909829966390854168}
   m_Mesh: {fileID: 4300000, guid: 9a90bc94ac048ff4baa900d6d7317b36, type: 3}
+>>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
 --- !u!1 &1909829966390854170
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,13 +186,20 @@ GameObject:
   m_Component:
   - component: {fileID: 1909829966390369850}
   - component: {fileID: 1909829966402359068}
+<<<<<<< HEAD
+=======
   - component: {fileID: 7646488371941966302}
+>>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_Layer: 0
   m_Name: Pixel_box_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
+<<<<<<< HEAD
+  m_StaticEditorFlags: 0
+=======
   m_StaticEditorFlags: 4294967295
+>>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_IsActive: 1
 --- !u!4 &1909829966390369850
 Transform:
@@ -200,8 +229,11 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+<<<<<<< HEAD
+=======
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+>>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -213,7 +245,10 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+<<<<<<< HEAD
+=======
   m_ReceiveGI: 1
+>>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -240,6 +275,8 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00023398176, y: 0.009836773, z: -0.0056607774}
     m_Extent: {x: 0.020009037, y: 0.011150871, z: 0.010084936}
   m_DirtyAABB: 0
+<<<<<<< HEAD
+=======
 --- !u!64 &7646488371941966302
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -254,6 +291,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 9a90bc94ac048ff4baa900d6d7317b36, type: 3}
+>>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
 --- !u!1 &1909829966390854172
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +306,11 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
+<<<<<<< HEAD
+  m_StaticEditorFlags: 0
+=======
   m_StaticEditorFlags: 4294967295
+>>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_IsActive: 1
 --- !u!4 &1909829966390369852
 Transform:
@@ -299,7 +341,11 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
+<<<<<<< HEAD
+  m_StaticEditorFlags: 0
+=======
   m_StaticEditorFlags: 4294967295
+>>>>>>> b054bde6b4e08339369a0a115a88aa1c6408b907
   m_IsActive: 1
 --- !u!4 &1909829966390369854
 Transform:
