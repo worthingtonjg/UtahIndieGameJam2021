@@ -12,6 +12,7 @@ public class Labrynth : MonoBehaviour
     public List<GameObject> bodyPrefabs;
     public GameObject EnemyPrefab;
     public NavMeshSurface surface;
+    public Animation LightPulse;
 
     public GameObject PanelReincarnate;
     public GameObject PanelLeave;
@@ -29,7 +30,7 @@ public class Labrynth : MonoBehaviour
     void Start()
     {
         instance = this;
-        
+
         GenerateLevel();
         SpawnPlayer();
         SpawnEnemy();
@@ -96,4 +97,8 @@ public class Labrynth : MonoBehaviour
         }
     }
 
+    public void TeleportBody() 
+    {
+        LightPulse.Play();
+    }
 }
