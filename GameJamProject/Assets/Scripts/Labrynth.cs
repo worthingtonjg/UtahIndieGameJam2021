@@ -166,6 +166,9 @@ public class Labrynth : MonoBehaviour
     public void DecrementBodies()
     {
         --bodiesRemaining;
+
+        if(bodiesRemaining < 0) bodiesRemaining = 0;
+
         BodiesRemaining.text = bodiesRemaining.ToString();
 
         if(bodiesRemaining <= 0)

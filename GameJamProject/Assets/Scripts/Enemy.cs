@@ -12,7 +12,6 @@ public class Enemy : MonoBehaviour
     public GameObject BloodyMessPrefab;
     public float chaseSpeed = 4;
     public float patrolSpeed = 2;
-
     private static readonly int IsWalking = Animator.StringToHash("isWalking");
     private static readonly int Attack = Animator.StringToHash("Attack");
     private int currentWayPoint;
@@ -23,7 +22,10 @@ public class Enemy : MonoBehaviour
     private bool canSeePlayer;
     private List<GameObject> waypoints;
     private List<GameObject> sightlines;
-
+    private AudioSource aud;
+    private float attackRate = 1f;
+    private float lastAttack = 0.0f;
+    
     private enum EnumState
     {
         Idle,
@@ -40,6 +42,7 @@ public class Enemy : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<PlayerModelSelector>();
+        aud = GetComponent<AudioSource>();
 
         agent = GetComponent<NavMeshAgent>();
         waypoints = GameObject.FindGameObjectsWithTag("Waypoint").ToList();
@@ -64,7 +67,7 @@ public class Enemy : MonoBehaviour
     {
         if(state == EnumState.Eating) 
         {
-            animator.SetTrigger(Attack);
+            DoAttack();
             return;
         }
         
@@ -139,7 +142,7 @@ public class Enemy : MonoBehaviour
 
             if(state == EnumState.Attacking)
             {
-                animator.SetTrigger(Attack);
+                DoAttack();
                 StartCoroutine("StealBody");
             }
         }
@@ -173,6 +176,18 @@ public class Enemy : MonoBehaviour
 
                 state = EnumState.Patrolling;
             }
+        }
+    }
+
+    private void DoAttack()
+    {
+        animator.SetTrigger(Attack);
+
+        if(Time.time > attackRate + lastAttack)
+        {
+            aud.PlayOneShot(aud.clip);
+            print(aud.clip.name);
+            lastAttack = Time.time;
         }
     }
 
