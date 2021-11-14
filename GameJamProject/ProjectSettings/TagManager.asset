@@ -14,7 +14,12 @@ TagManager:
   - PlayerModel
   - GhostModel
   - Savepoint
+<<<<<<< HEAD
   - Collider
+=======
+  - Ceiling
+  - Arena
+>>>>>>> 6b7c753be1a4145453e50a0b2b7e347631bc8131
   layers:
   - Default
   - TransparentFX
