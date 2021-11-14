@@ -9,7 +9,7 @@ public class PlayerModelSelector : MonoBehaviour
     
     public Animator animator;
 
-    private bool reincarnated;
+    public bool reincarnated;
 
     private bool canReincarnate;
 
@@ -40,29 +40,38 @@ public class PlayerModelSelector : MonoBehaviour
             }
         }
 
-        if(Input.GetKey(KeyCode.R))
+        if(Input.GetKey(KeyCode.E))
         {
-            Reincarnate();
-        }
-
-        if(Input.GetKey(KeyCode.L))
-        {
-            LeaveBody();            
+            if(!reincarnated)
+            {
+                Reincarnate();
+            }
+            else
+            {
+                LeaveBody();
+            }
         }
     }    
 
-    public void ActivateGhost()
+    public bool ActivateGhost()
     {
+        bool hadBody = reincarnated;
+        
         playerModels.ForEach(p => p.SetActive(false));
         ghostModel.SetActive(true);
         animator = ghostModel.GetComponent<Animator>();
         reincarnated = false;
+
+        return hadBody;
     }
 
     public void LeaveBody()
     {
         if(!reincarnated) return;
-        ActivateGhost();        
+        if(!canLeaveBody) return;
+        Labrynth.instance.TeleportBody();
+        Labrynth.instance.PanelLeave.SetActive(false); 
+        ActivateGhost();       
     }
 
     public void Reincarnate()
@@ -72,6 +81,7 @@ public class PlayerModelSelector : MonoBehaviour
         var body = playerModels.FirstOrDefault(p => bodyName.Contains(p.name));
         if(body != null)
         {
+            Labrynth.instance.PanelReincarnate.SetActive(false);
             playerModels.ForEach(p => p.SetActive(false));
             ghostModel.SetActive(false);
             body.SetActive(true);
@@ -92,7 +102,6 @@ public class PlayerModelSelector : MonoBehaviour
             if(script.body != null && script.body.activeSelf)
             {
                 bodyName = script.body.name;
-                script.smoke.SetActive(true);
                 Labrynth.instance.PanelReincarnate.SetActive(true);
                 canReincarnate = true;
             }
@@ -100,6 +109,8 @@ public class PlayerModelSelector : MonoBehaviour
 
         if(other.tag == "Savepoint")
         {
+            if(!reincarnated) return;
+            print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
             canLeaveBody = true;
             Labrynth.instance.PanelLeave.SetActive(true);
         }
@@ -109,7 +120,6 @@ public class PlayerModelSelector : MonoBehaviour
     {
         if(other.tag == "Waypoint") 
         {
-            script.smoke.SetActive(false);
             Labrynth.instance.PanelReincarnate.SetActive(false);
             canReincarnate = false;
             script = null;
