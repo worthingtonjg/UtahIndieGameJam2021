@@ -6,46 +6,88 @@ using System.Linq;
 
 public class Labrynth : MonoBehaviour
 {
-    public int Enemies;
-    public List<GameObject> Tiles;
-
-    public GameObject Enemy;
-
+    public GameObject PlayerPrefab;
+    public List<GameObject> TilePrefabs;
+    public List<GameObject> bodyPrefabs;
+    public GameObject EnemyPrefab;
     public NavMeshSurface surface;
 
     private List<GameObject> waypoints;
+    private int mapSize = 5;
+    private int centerTile = 2;
+    private float startX = 19.5f;
+    private float startY = -19.5f;
+    private float tileSize = 10f;
+    private int enemySpawnPoint;
+    private int playerSpawnPoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        waypoints = GameObject.FindGameObjectsWithTag("Waypoint").ToList();
-        
-        float startX = 14.5f;
-        float startY = -15.5f;    
+        GenerateLevel();
+        SpawnPlayer();
+        SpawnEnemy();
+        SpawnBodies();
+    }
 
-        for(int row = 0; row < 4; row++)
+    private void GenerateLevel()
+    {
+        float x = startX;
+        float y = startY;
+
+        for (int row = 0; row < mapSize; row++)
         {
-            for(int col = 0; col < 4; col++)
+            for (int col = 0; col < mapSize; col++)
             {
-                var prefab = Tiles[Random.Range(0, Tiles.Count)];
-                var tile = GameObject.Instantiate(prefab, new Vector3(startX, 0, startY), Quaternion.identity);
-                startX-=10;
+                if(row != centerTile || col != centerTile) 
+                {
+                    var prefab = TilePrefabs[Random.Range(0, TilePrefabs.Count)];
+                    var tile = GameObject.Instantiate(prefab, new Vector3(x, 0, y), Quaternion.identity);
+                }
+                x -= tileSize;
             }
-            startX = 14.5f;
-            startY+=10;
-        }
-
-        for(int i = 0; i < Enemies; i++)
-        {
-
+            x = startX;
+            y += tileSize;
         }
 
         surface.BuildNavMesh();
+        waypoints = GameObject.FindGameObjectsWithTag("Waypoint").ToList();            
+        if(waypoints.Count == 0) Debug.LogError("No Waypoints detected");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SpawnPlayer()
     {
+        playerSpawnPoint = Random.Range(0, waypoints.Count);
+        var waypoint = waypoints[playerSpawnPoint];
         
+        GameObject.Instantiate(PlayerPrefab, waypoint.transform.position, Quaternion.identity);
+        waypoints.Remove(waypoint);
     }
+
+    private void SpawnEnemy()
+    {
+        enemySpawnPoint = Random.Range(0, waypoints.Count);
+        var waypoint = waypoints[enemySpawnPoint];
+        
+        GameObject.Instantiate(EnemyPrefab, waypoint.transform.position, Quaternion.identity);
+        waypoints.Remove(waypoint);
+    }
+
+    private void SpawnBodies()
+    {
+        if(bodyPrefabs.Count == 0) return;
+
+        foreach(var waypoint in waypoints)
+        {
+            var prefab = bodyPrefabs[Random.Range(0, bodyPrefabs.Count)];
+            var body = GameObject.Instantiate(prefab, new Vector3(waypoint.transform.position.x, 0, waypoint.transform.position.z), Quaternion.identity);
+            
+            var waypointScript = waypoint.GetComponent<Waypoint>();
+            waypointScript.body = body;
+
+            var anim = body.GetComponent<Animator>();
+            anim.SetTrigger("die");
+        }
+    }
+
 }

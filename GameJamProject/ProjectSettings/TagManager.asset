@@ -8,7 +8,11 @@ TagManager:
   - Vision
   - Sightline
   - Ring
+  - LaserBullet
+  - Bug
+  - Monster
   - PlayerModel
+  - GhostModel
   layers:
   - Default
   - TransparentFX
