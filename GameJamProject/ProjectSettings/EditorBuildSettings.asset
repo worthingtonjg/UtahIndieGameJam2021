@@ -6,9 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/00Menu.unity
+    guid: 854284f919b05ea42a17e6bd314b89d2
+  - enabled: 1
     path: Assets/Scenes/01Intro.unity
     guid: 5dc73c05b52ddfb4c879214d9cb5dc59
   - enabled: 1
-    path: Assets/Scenes/02Main.unity
-    guid: 824d2f2089b065340acab2f9d646e71c
+    path: Assets/Scenes/02Intro.unity
+    guid: 68c87cca5b98fce44bbdb407f1a050bc
+  - enabled: 1
+    path: Assets/Scenes/03Labrynth.unity
+    guid: 86cc642d32944a848b42cb2689234a52
+  - enabled: 1
+    path: Assets/Scenes/04GameLost.unity
+    guid: 8565990cef3adb2439a771c455e3a074
+  - enabled: 1
+    path: Assets/Scenes/04GameWon.unity
+    guid: 47e9c57b6adeb594f8828d4cb20bea5e
+  - enabled: 1
+    path: Assets/Scenes/MiniGames/RingsMiniGame/RingsMiniGame.unity
+    guid: 5211ff030895e1047ae7e0e6047058af
+  - enabled: 1
+    path: Assets/Scenes/MiniGames/ShootBugs.unity
+    guid: e5aab5b7c644f8e4a9d45d77c599a084
   m_configObjects: {}

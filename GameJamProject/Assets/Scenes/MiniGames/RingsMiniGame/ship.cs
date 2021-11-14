@@ -5,7 +5,7 @@ using TMPro;
 
 public class ship : MonoBehaviour
 {
-    private int ringsCount = 0;
+    public int ringsCount = 0;
     public TMP_Text ringsCollected;
 
     public AudioSource audioSource;

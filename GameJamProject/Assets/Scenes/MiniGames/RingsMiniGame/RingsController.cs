@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Fungus;
+using TMPro;
 
 public class RingsController : MonoBehaviour
 {
@@ -11,7 +13,9 @@ public class RingsController : MonoBehaviour
     private Vector3 currentPosition;
     private GameObject currentRing;
     
+    public Flowchart flowchart;
     public GameObject Ship;
+    public TMP_Text collectedText;
 
     public float FlySpeed = 25f;
 	public float TurnSpeed = 40f;
@@ -30,9 +34,12 @@ public class RingsController : MonoBehaviour
     // Start is called before the first frame update
 
     private float timeRemaining = 60;
+    private ship shipScript;
+
 
     void Start()
     {
+        shipScript = Ship.GetComponent<ship>();
         currentRing = StartRing;
 
         int changeChance = Random.Range (ChangeChanceMin, ChangeChanceMax);
@@ -73,6 +80,8 @@ public class RingsController : MonoBehaviour
         {
             timeRemaining = 0;
             started = false;
+            collectedText.text = $"Rings collected: {shipScript.ringsCount}";
+            flowchart.ExecuteBlock("End Game");
         }
 
         TimeRemaining.text = Mathf.Round(timeRemaining).ToString();
