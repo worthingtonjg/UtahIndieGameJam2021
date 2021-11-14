@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Linq;
 using TMPro;
+using Fungus;
 
 public class Labrynth : MonoBehaviour
 {
     public static Labrynth instance;
+    public GameObject LevelLayout;
     public GameObject PlayerPrefab;
     public List<GameObject> TilePrefabs;
     public List<GameObject> bodyPrefabs;
@@ -19,9 +21,10 @@ public class Labrynth : MonoBehaviour
     public GameObject PanelLeave;
     public GameObject PanelDamage;
     public GameObject PanelLab;
-
     public TMP_Text BodiesRemaining;
     public TMP_Text BodyCount;
+    public Flowchart flowChart;
+
     private int bodyCount;
     private int bodiesRemaining;
     private List<GameObject> waypoints;
@@ -44,13 +47,23 @@ public class Labrynth : MonoBehaviour
         SpawnPlayer();
         SpawnEnemy();
         SpawnBodies();
+
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
     }
 
     void Update() 
     {
         if(PanelLab.activeSelf && Input.GetKey(KeyCode.E))
         {
-
+            if(bodyCount >= 10)
+            {
+                flowChart.ExecuteBlock("Win Game");
+            }
+            else
+            {
+                flowChart.ExecuteBlock("Lose Game");
+            }
         }    
     }
 
@@ -75,6 +88,17 @@ public class Labrynth : MonoBehaviour
         }
 
         surface.BuildNavMesh();
+
+        // Hide the cube used as colliders
+        var collidersToHide = GameObject.FindGameObjectsWithTag("Collider").ToList();
+        foreach(var colliderToHide in collidersToHide)
+        {
+            colliderToHide.SetActive(false);
+        }
+
+        // Show the layout
+        LevelLayout.SetActive(true);
+
         waypoints = GameObject.FindGameObjectsWithTag("Waypoint").ToList();            
         if(waypoints.Count == 0) Debug.LogError("No Waypoints detected");
     }
@@ -114,7 +138,7 @@ public class Labrynth : MonoBehaviour
             anim.SetTrigger("die");
             ++bodiesRemaining;
         }
-        
+
         BodiesRemaining.text = bodiesRemaining.ToString();
     }
 

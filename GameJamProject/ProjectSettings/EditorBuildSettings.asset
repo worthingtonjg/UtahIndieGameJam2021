@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/04GameWon.unity
     guid: 47e9c57b6adeb594f8828d4cb20bea5e
   - enabled: 1
+    path: Assets/Scenes/10Credits.unity
+    guid: 663bfbe4dcec8ff47b51ba3b2ae5b52b
+  - enabled: 1
     path: Assets/Scenes/MiniGames/RingsMiniGame/RingsMiniGame.unity
     guid: 5211ff030895e1047ae7e0e6047058af
   - enabled: 1
