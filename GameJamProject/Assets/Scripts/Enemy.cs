@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     private int currentWayPoint;
     private NavMeshAgent agent;
     private GameObject player;
+    private PlayerModelSelector playerScript;
     private Vector3? lastSeenAt;
     private bool canSeePlayer;
     private List<GameObject> waypoints;
@@ -38,6 +39,8 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        playerScript = player.GetComponent<PlayerModelSelector>();
+
         agent = GetComponent<NavMeshAgent>();
         waypoints = GameObject.FindGameObjectsWithTag("Waypoint").ToList();
 
@@ -64,7 +67,7 @@ public class Enemy : MonoBehaviour
             animator.SetTrigger(Attack);
             return;
         }
-
+        
         foreach(var sightline in sightlines)
         {
             var sightLineDirection = sightline.transform.position - transform.position;
@@ -73,23 +76,27 @@ public class Enemy : MonoBehaviour
 
         var playerSighted = false;
         
-        foreach(var sightline in sightlines)
+        if(playerScript.reincarnated)
         {
-            var sightLineDirection = sightline.transform.position - transform.position;
-            RaycastHit sightLineHit;
-            if (Physics.Raycast(transform.position, sightLineDirection, out sightLineHit))
+            foreach(var sightline in sightlines)
             {
-                if(sightLineHit.collider.gameObject == player)
+                var sightLineDirection = sightline.transform.position - transform.position;
+                RaycastHit sightLineHit;
+                if (Physics.Raycast(transform.position, sightLineDirection, out sightLineHit))
                 {
-                    playerSighted = true;
-                    state = EnumState.Chasing; 
-                    break;
+                    if(sightLineHit.collider.gameObject == player)
+                    {
+                        playerSighted = true;
+                        state = EnumState.Chasing; 
+                        break;
+                    }
                 }
             }
         }
 
         if(state == EnumState.Attacking && !playerSighted)
         {
+            animator.SetBool(IsWalking, false);
             state = EnumState.Idle;
             canSeePlayer = false;
         }
@@ -133,6 +140,7 @@ public class Enemy : MonoBehaviour
             if(state == EnumState.Attacking)
             {
                 animator.SetTrigger(Attack);
+                StartCoroutine("StealBody");
             }
         }
         else
@@ -184,6 +192,14 @@ public class Enemy : MonoBehaviour
                 GameObject.Instantiate(BloodyMessPrefab, other.transform.position, Quaternion.identity);
                 StartCoroutine("HatchEnemy", other.transform.position);
             }
+            else
+            {
+                state = EnumState.Idle;
+            }
+        }
+        else
+        {
+            state = EnumState.Idle;
         }
     }
 
@@ -193,5 +209,19 @@ public class Enemy : MonoBehaviour
         agent.enabled = true;
         state = EnumState.Idle;
         GameObject.Instantiate(EnemyPrefab, position, Quaternion.identity);        
+        Labrynth.instance.DecrementBodies();
+    }
+
+    private IEnumerator StealBody()
+    {
+        if(Labrynth.instance.BodyStolen()) 
+        {
+            var mess = GameObject.Instantiate(BloodyMessPrefab, player.transform.position, Quaternion.identity);
+            GameObject.Destroy(mess, 1);
+
+            Labrynth.instance.PanelDamage.SetActive(true);
+            yield return new WaitForSeconds(.5f);
+            Labrynth.instance.PanelDamage.SetActive(false);
+        }
     }
 }

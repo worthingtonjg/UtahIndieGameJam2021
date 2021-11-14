@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using System.Linq;
+using TMPro;
 
 public class Labrynth : MonoBehaviour
 {
@@ -16,7 +17,13 @@ public class Labrynth : MonoBehaviour
 
     public GameObject PanelReincarnate;
     public GameObject PanelLeave;
+    public GameObject PanelDamage;
+    public GameObject PanelLab;
 
+    public TMP_Text BodiesRemaining;
+    public TMP_Text BodyCount;
+    private int bodyCount;
+    private int bodiesRemaining;
     private List<GameObject> waypoints;
     private int mapSize = 5;
     private int centerTile = 2;
@@ -25,6 +32,8 @@ public class Labrynth : MonoBehaviour
     private float tileSize = 10f;
     private int enemySpawnPoint;
     private int playerSpawnPoint;
+
+    private PlayerModelSelector playerScript;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +44,14 @@ public class Labrynth : MonoBehaviour
         SpawnPlayer();
         SpawnEnemy();
         SpawnBodies();
+    }
+
+    void Update() 
+    {
+        if(PanelLab.activeSelf && Input.GetKey(KeyCode.E))
+        {
+            
+        }    
     }
 
     private void GenerateLevel()
@@ -67,7 +84,8 @@ public class Labrynth : MonoBehaviour
         playerSpawnPoint = Random.Range(0, waypoints.Count);
         var waypoint = waypoints[playerSpawnPoint];
         
-        GameObject.Instantiate(PlayerPrefab, waypoint.transform.position, Quaternion.identity);
+        var player = GameObject.Instantiate(PlayerPrefab, waypoint.transform.position, Quaternion.identity);
+        playerScript = player.GetComponent<PlayerModelSelector>();
         waypoints.Remove(waypoint);
     }
 
@@ -95,10 +113,33 @@ public class Labrynth : MonoBehaviour
             var anim = body.GetComponent<Animator>();
             anim.SetTrigger("die");
         }
+
+        bodiesRemaining = bodyPrefabs.Count;
     }
 
     public void TeleportBody() 
     {
         LightPulse.Play();
+        ++bodyCount;
+        DecrementBodies();
+        BodyCount.text = bodyCount.ToString();
+    }
+
+    public bool BodyStolen()
+    {
+        bool hadBody = playerScript.ActivateGhost();
+        DecrementBodies();
+        return hadBody;
+    }
+
+    public void DecrementBodies()
+    {
+        --bodiesRemaining;
+        BodiesRemaining.text = bodiesRemaining.ToString();
+
+        if(bodiesRemaining <= 0)
+        {
+            PanelLab.SetActive(true);
+        }
     }
 }

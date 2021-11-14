@@ -9,7 +9,7 @@ public class PlayerModelSelector : MonoBehaviour
     
     public Animator animator;
 
-    private bool reincarnated;
+    public bool reincarnated;
 
     private bool canReincarnate;
 
@@ -40,23 +40,29 @@ public class PlayerModelSelector : MonoBehaviour
             }
         }
 
-        if(Input.GetKey(KeyCode.R))
+        if(Input.GetKey(KeyCode.E))
         {
-            Reincarnate();
-        }
-
-        if(Input.GetKey(KeyCode.L))
-        {
-            LeaveBody();            
+            if(!reincarnated)
+            {
+                Reincarnate();
+            }
+            else
+            {
+                LeaveBody();
+            }
         }
     }    
 
-    public void ActivateGhost()
+    public bool ActivateGhost()
     {
+        bool hadBody = reincarnated;
+        
         playerModels.ForEach(p => p.SetActive(false));
         ghostModel.SetActive(true);
         animator = ghostModel.GetComponent<Animator>();
         reincarnated = false;
+
+        return hadBody;
     }
 
     public void LeaveBody()
