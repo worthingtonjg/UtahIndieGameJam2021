@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 
 public class PlayerModelSelector : MonoBehaviour
-{
+{   
     private GameObject ghostModel;
     public List<GameObject> playerModels;
     
@@ -93,6 +93,7 @@ public class PlayerModelSelector : MonoBehaviour
             {
                 bodyName = script.body.name;
                 script.smoke.SetActive(true);
+                Labrynth.instance.PanelReincarnate.SetActive(true);
                 canReincarnate = true;
             }
         }
@@ -100,6 +101,7 @@ public class PlayerModelSelector : MonoBehaviour
         if(other.tag == "Savepoint")
         {
             canLeaveBody = true;
+            Labrynth.instance.PanelLeave.SetActive(true);
         }
     }
 
@@ -108,6 +110,7 @@ public class PlayerModelSelector : MonoBehaviour
         if(other.tag == "Waypoint") 
         {
             script.smoke.SetActive(false);
+            Labrynth.instance.PanelReincarnate.SetActive(false);
             canReincarnate = false;
             script = null;
             bodyName = string.Empty;
@@ -116,6 +119,7 @@ public class PlayerModelSelector : MonoBehaviour
         if(other.tag == "Savepoint")
         {
             canLeaveBody = false;
+            Labrynth.instance.PanelLeave.SetActive(false);
         }
     }
 }

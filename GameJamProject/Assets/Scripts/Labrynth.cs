@@ -6,11 +6,15 @@ using System.Linq;
 
 public class Labrynth : MonoBehaviour
 {
+    public static Labrynth instance;
     public GameObject PlayerPrefab;
     public List<GameObject> TilePrefabs;
     public List<GameObject> bodyPrefabs;
     public GameObject EnemyPrefab;
     public NavMeshSurface surface;
+
+    public GameObject PanelReincarnate;
+    public GameObject PanelLeave;
 
     private List<GameObject> waypoints;
     private int mapSize = 5;
@@ -24,6 +28,8 @@ public class Labrynth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
+        
         GenerateLevel();
         SpawnPlayer();
         SpawnEnemy();
