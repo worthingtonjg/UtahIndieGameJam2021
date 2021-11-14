@@ -32,12 +32,12 @@ public class BulletsFly : MonoBehaviour
             if (collision.gameObject.tag == "Bug" && StartBugRoom.BugCount > 0)
             {
                 StartBugRoom.BugCount--;
-                Debug.Log(StartBugRoom.BugCount + " bugs left.");
+                //Debug.Log(StartBugRoom.BugCount + " bugs left.");
             }
             else if (collision.gameObject.tag == "Monster" && StartBugRoom.MonsterCount > 0)
             {
                 StartBugRoom.MonsterCount--;
-                Debug.Log(StartBugRoom.MonsterCount + " monsters left.");
+                //Debug.Log(StartBugRoom.MonsterCount + " monsters left.");
             }
             Destroy(gameObject);
             Destroy(collision.gameObject);
