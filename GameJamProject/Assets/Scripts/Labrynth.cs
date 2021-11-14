@@ -48,7 +48,7 @@ public class Labrynth : MonoBehaviour
         SpawnEnemy();
         SpawnBodies();
 
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
@@ -58,10 +58,16 @@ public class Labrynth : MonoBehaviour
         {
             if(bodyCount >= 10)
             {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+
                 flowChart.ExecuteBlock("Win Game");
             }
             else
             {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+
                 flowChart.ExecuteBlock("Lose Game");
             }
         }    
