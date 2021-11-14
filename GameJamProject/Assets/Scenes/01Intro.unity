@@ -7781,6 +7781,7 @@ GameObject:
   - component: {fileID: 617744171}
   - component: {fileID: 617744176}
   - component: {fileID: 617744174}
+  - component: {fileID: 617744177}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -7804,7 +7805,7 @@ MonoBehaviour:
   scrollPos: {x: 0, y: 0}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 655
+  blockViewHeight: 550
   zoom: 1
   scrollViewRect:
     serializedVersion: 2
@@ -7814,7 +7815,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 617744138}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 617744156}
   variables: []
   description: 
   stepPause: 0
@@ -7840,8 +7842,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 69
-    y: 70
+    x: 67
+    y: 71
     width: 75
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -7851,6 +7853,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 617744141}
   commandList:
+  - {fileID: 617744177}
   - {fileID: 617744175}
   - {fileID: 617744174}
   - {fileID: 617744173}
@@ -7924,7 +7927,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: This is Dr. Strange ... As you can tell he looks a bit strange.
   description: 
-  character: {fileID: 0}
+  character: {fileID: 1123136060}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -8071,7 +8074,7 @@ MonoBehaviour:
   storyText: Dr. Strange has been working on the secret to immortality.  And as you
     can tell things have not gone well for him so far.
   description: 
-  character: {fileID: 0}
+  character: {fileID: 1123136060}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -8180,7 +8183,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: This ugly guy is his experiment.
   description: 
-  character: {fileID: 0}
+  character: {fileID: 1123136060}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -8207,7 +8210,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: And as usual things are about to go terribly wrong...
   description: 
-  character: {fileID: 0}
+  character: {fileID: 1123136060}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -8279,7 +8282,7 @@ MonoBehaviour:
   storyText: And with those last words, Dr. Strange bravely volunteers himself for
     a chance at eternal life...
   description: 
-  character: {fileID: 0}
+  character: {fileID: 1123136060}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -8506,7 +8509,7 @@ MonoBehaviour:
   storyText: During his last experiment, Dr. Strange in his excitement, left the
     creature's cage ajar ...
   description: 
-  character: {fileID: 0}
+  character: {fileID: 1123136060}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -8553,7 +8556,7 @@ MonoBehaviour:
   indentLevel: 0
   _sceneName:
     stringRef: {fileID: 0}
-    stringVal: 02Main
+    stringVal: 02Intro
   loadingImage: {fileID: 0}
   sceneNameOLD: 
 --- !u!114 &617744170
@@ -8691,7 +8694,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: The SS - Strange ... Somewhere deep in space.
   description: 
-  character: {fileID: 0}
+  character: {fileID: 1123136060}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -8715,6 +8718,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 36
+  indentLevel: 0
+  duration: 1
+  targetAlpha: 0
+  waitUntilFinished: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTexture: {fileID: 0}
+  fadeTweenType: 4
+--- !u!114 &617744177
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617744136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207aecf668a0345388087ccf522f9957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 38
   indentLevel: 0
   duration: 1
   targetAlpha: 0
@@ -18618,7 +18641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: Character Name
+  nameText: Dr. Strange
   nameColor: {r: 1, g: 1, b: 1, a: 1}
   soundEffect: {fileID: 0}
   portraits:
