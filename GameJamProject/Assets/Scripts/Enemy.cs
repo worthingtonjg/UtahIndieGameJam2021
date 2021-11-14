@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     public Animator animator; 
     public GameObject EnemyPrefab;
     public GameObject BloodyMessPrefab;
+    public float chaseSpeed = 4;
+    public float patrolSpeed = 2;
     private static readonly int IsWalking = Animator.StringToHash("isWalking");
     private static readonly int Attack = Animator.StringToHash("Attack");
     private int currentWayPoint;
@@ -25,6 +27,7 @@ public class Enemy : MonoBehaviour
         Chasing,
         Attacking,
         Patrolling,
+        Eating,
     }
 
     private EnumState state;
@@ -46,6 +49,12 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(state == EnumState.Eating) 
+        {
+            animator.SetTrigger(Attack);
+            return;
+        }
+
         foreach(var sightline in sightlines)
         {
             var sightLineDirection = sightline.transform.position - transform.position;
@@ -94,7 +103,7 @@ public class Enemy : MonoBehaviour
                     lastSeenAt = player.transform.position;
 
                     agent.stoppingDistance = 3;
-                    agent.speed = 3;                
+                    agent.speed = chaseSpeed;                
                     agent.SetDestination(lastSeenAt.Value);
                     state = EnumState.Chasing;
                 }
@@ -139,7 +148,7 @@ public class Enemy : MonoBehaviour
 
                     print($"Next waypoint: {currentWayPoint}");
                     agent.stoppingDistance = 0;
-                    agent.speed = 1;
+                    agent.speed = patrolSpeed;
                     agent.SetDestination(waypoints[currentWayPoint].transform.position);
                     animator.SetBool(IsWalking, true);
                 }
@@ -151,7 +160,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        if(state == EnumState.Chasing) return;
+        if(state != EnumState.Patrolling) return;
         if(!other.CompareTag("Waypoint")) return;
 
         var script = other.GetComponent<Waypoint>();
@@ -159,25 +168,20 @@ public class Enemy : MonoBehaviour
         {
             if(script.body.activeSelf)
             {
+                agent.enabled = false;
+                state = EnumState.Eating;
                 script.body.SetActive(false);
-                if(EnemyPrefab != null)
-                {
-                    GameObject.Instantiate(BloodyMessPrefab, other.transform.position, Quaternion.identity);
-                    StartCoroutine("HatchEnemy", other.transform.position);
-
-                }
+                GameObject.Instantiate(BloodyMessPrefab, other.transform.position, Quaternion.identity);
+                StartCoroutine("HatchEnemy", other.transform.position);
             }
-        }
-
-        if(state == EnumState.Patrolling)
-        {
-            state = EnumState.Idle;
         }
     }
 
     private IEnumerator HatchEnemy(Vector3 position)
     {
         yield return new WaitForSeconds(3f);
+        agent.enabled = true;
+        state = EnumState.Idle;
         GameObject.Instantiate(EnemyPrefab, position, Quaternion.identity);        
     }
 }
