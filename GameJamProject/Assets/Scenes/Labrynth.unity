@@ -155,9 +155,11 @@ MonoBehaviour:
   PlayerPrefab: {fileID: 5486593688906448078, guid: 32bdbf6fad0cb48eeb7ec5cd22b533f1, type: 3}
   TilePrefabs:
   - {fileID: 3097760737708229740, guid: ff6d8e620050f00489b357f414ba85ae, type: 3}
-  - {fileID: 2381875060787593442, guid: 556982b5ee1ee3942b9e720cbf2f22a1, type: 3}
-  - {fileID: 5632184317746846717, guid: 7ecb667bb8497874d9080afd03c8859b, type: 3}
-  - {fileID: 2985753783723865568, guid: 4713c42934e3c93469649d5a6799f9b3, type: 3}
+  - {fileID: 1250476563760435978, guid: a4ad00ad79faebd4abee0a92275a7474, type: 3}
+  - {fileID: 6185289558871621564, guid: 3618945aad302684bb56566fc69a7856, type: 3}
+  - {fileID: 3971382260209520612, guid: b5c63abdcc4ab994e8ed2d600cad9828, type: 3}
+  - {fileID: 2505828644457821735, guid: 113f8582d5ff1934a97d94cbba632c75, type: 3}
+  - {fileID: 1788029077126118390, guid: 2248371753bad1c4eb322e9bd4c3cb1a, type: 3}
   bodyPrefabs:
   - {fileID: 6347930378387236743, guid: bffd382075a723848801ec871a4a19aa, type: 3}
   - {fileID: 4642738618368154297, guid: 3f24b6ad6c0f0a74687756f63d001476, type: 3}
