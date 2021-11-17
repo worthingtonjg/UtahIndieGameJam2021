@@ -2,15 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Fungus;
 
 public class BulletsFly : MonoBehaviour
 {
-    [SerializeField]
+    private Camera camera;
+    private StartBugRoom StartBugRoomScript;
     private float BulletSpeed = 20.0f;
 
     // Start is called before the first frame update
     void Start()
     {
+        var obj = GameObject.Find("Main Camera");
+        camera = obj.GetComponent<Camera>();
+        StartBugRoomScript = camera.GetComponent<StartBugRoom>();
+        var flowchartArray = GameObject.FindObjectsOfType<Fungus.Flowchart>();
+        Debug.Log("Found " + flowchartArray.Length + " flowcharts");
+        // flowchart = flowchartArray[0];
     }
 
     // Update is called once per frame
@@ -24,36 +32,35 @@ public class BulletsFly : MonoBehaviour
         }
     }
 
-    private IEnumerator OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(UnityEngine.Collision collision)
     {
         if (collision.gameObject.tag == "Bug" || collision.gameObject.tag == "Monster")
         {
-            //Debug.Log(gameObject.tag + " hit: " + collision.gameObject.tag);
-            if (collision.gameObject.tag == "Bug" && StartBugRoom.BugCount > 0)
+            if (collision.gameObject.tag == "Bug" && StartBugRoomScript.BugCount > 0)
             {
-                StartBugRoom.BugCount--;
-                //Debug.Log(StartBugRoom.BugCount + " bugs left.");
+                StartBugRoomScript.BugCount--;
             }
-            else if (collision.gameObject.tag == "Monster" && StartBugRoom.MonsterCount > 0)
+            else if (collision.gameObject.tag == "Monster" && StartBugRoomScript.MonsterCount > 0)
             {
-                StartBugRoom.MonsterCount--;
-                //Debug.Log(StartBugRoom.MonsterCount + " monsters left.");
+                StartBugRoomScript.MonsterCount--;
             }
             Destroy(gameObject);
             Destroy(collision.gameObject);
         }
-        if (StartBugRoom.BugCount <= 0 && StartBugRoom.MonsterCount <= 0)
-        // if (GameObject.FindWithTag("Bug") == null && GameObject.FindWithTag("Monster") == null)
+
+        if (StartBugRoomScript.BugCount <= 0 && StartBugRoomScript.MonsterCount <= 0)
         {
-            Cursor.visible = true;
-            // AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync("ShootBugs");
-            // while (asyncUnload != null && !asyncUnload.isDone)
-            // {
-            //     yield return null;
-            // }
             Debug.Log("We're done. Time to exit.");
-            Application.Quit();
-        }  
-        return null;      
+            Cursor.visible = true;
+            StartBugRoomScript.Running = false;
+            if (StartBugRoomScript.BugFlowchart != null)
+            {
+                StartBugRoomScript.BugFlowchart.ExecuteBlock("End Bug Scene");
+            } 
+            else
+            {
+                Debug.Log("flowchart is null.");
+            }
+        }
     }
 }

@@ -15,12 +15,7 @@ public class FlyAround : MonoBehaviour
         Rifle = GameObject.Find("Rifle");
         if (Rifle == null)
         {
-            Debug.Log("Rifle is null.");
             Rifle = GameObject.Find("Sci-Fi Rifle_fbx");
-            if (Rifle == null)
-            {
-                Debug.Log("Rifle is still null.");
-            }
         }
     }
 
@@ -50,10 +45,6 @@ public class FlyAround : MonoBehaviour
         }
         else
         {
-            if (Rifle == null)
-            {
-                Debug.Log("Rifle is null for some reason.");
-            }
             int rand = Random.Range(0,4);
             switch (rand)
             {

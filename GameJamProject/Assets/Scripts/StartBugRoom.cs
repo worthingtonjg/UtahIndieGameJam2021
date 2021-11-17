@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class StartBugRoom : MonoBehaviour
 {
     public GameObject Bug;
     public GameObject Monster;
     public GameObject Rifle;
-    public static int BugCount = 10;
-    public static int MonsterCount = 7;
+    public Flowchart BugFlowchart;
+    public bool Running = false;
+    public int BugCount = 10;
+    public int MonsterCount = 7;
 
     // Start is called before the first frame update
     public void Start()
@@ -31,5 +34,10 @@ public class StartBugRoom : MonoBehaviour
         {
             Cursor.visible = true;
         }
+    }
+
+    public void StartGame()
+    {
+        Running = true;
     }
 }

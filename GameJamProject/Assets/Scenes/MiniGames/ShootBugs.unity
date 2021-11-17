@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2795,8 +2795,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7359a487dc926f14791a33bb5e176ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LaserBullet: {fileID: 8576126341992066381, guid: 2d51de92a90e4e0498038a340720c637, type: 3}
-  AimSpeed: 20
+  LaserBullet: {fileID: 2571655145364821880, guid: 2d51de92a90e4e0498038a340720c637, type: 3}
+  camera: {fileID: 1294551947}
 --- !u!4 &18868476 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b5742c35cad19b945bc129c719875b2d, type: 3}
@@ -2834,7 +2834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &74641033
 Light:
   m_ObjectHideFlags: 0
@@ -52603,6 +52603,12 @@ GameObject:
   - component: {fileID: 723313916}
   - component: {fileID: 723313915}
   - component: {fileID: 723313914}
+  - component: {fileID: 723313923}
+  - component: {fileID: 723313922}
+  - component: {fileID: 723313924}
+  - component: {fileID: 723313921}
+  - component: {fileID: 723313920}
+  - component: {fileID: 723313919}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -52612,7 +52618,7 @@ GameObject:
   m_IsActive: 1
 --- !u!114 &723313914
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -52660,17 +52666,19 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 67
-    y: 70
-    width: 111
+    y: 68
+    width: 141
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 0
-  blockName: New Block
+  blockName: Start Bug Scene
   description: 
   eventHandler: {fileID: 723313915}
   commandList:
   - {fileID: 723313914}
+  - {fileID: 723313923}
+  - {fileID: 723313922}
   suppressAllAutoSelections: 0
 --- !u!114 &723313917
 MonoBehaviour:
@@ -52697,9 +52705,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 723313916}
+  - {fileID: 723313924}
   selectedCommands:
-  - {fileID: 723313914}
+  - {fileID: 723313920}
   variables: []
   description: 
   stepPause: 0
@@ -52725,6 +52733,127 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &723313919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723313913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d03ae0919f04264b018681ed534177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 8
+  indentLevel: 0
+  _sceneName:
+    stringRef: {fileID: 0}
+    stringVal: 00Menu
+  loadingImage: {fileID: 0}
+  sceneNameOLD: 
+--- !u!114 &723313920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723313913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207aecf668a0345388087ccf522f9957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 7
+  indentLevel: 0
+  duration: 1
+  targetAlpha: 1
+  waitUntilFinished: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTexture: {fileID: 0}
+  fadeTweenType: 4
+--- !u!114 &723313921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723313913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 6
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 3
+  durationOLD: 0
+--- !u!114 &723313922
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723313913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 4
+  indentLevel: 0
+  targetObject: {fileID: 1294551945}
+  methodName: StartGame
+  delay: 0
+--- !u!114 &723313923
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723313913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 3
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 3
+  durationOLD: 0
+--- !u!114 &723313924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723313913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 291
+    y: 73
+    width: 135
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 5
+  blockName: End Bug Scene
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 723313921}
+  - {fileID: 723313920}
+  - {fileID: 723313919}
+  suppressAllAutoSelections: 0
 --- !u!43 &769580357
 Mesh:
   m_ObjectHideFlags: 0
@@ -56393,6 +56522,10 @@ MonoBehaviour:
   Bug: {fileID: 6841141398015280818, guid: 3e00ebe58230c04449add6bbb89b67bd, type: 3}
   Monster: {fileID: 8396216305966401012, guid: 49dd601ae34e203448ed7eabdee4c5c9, type: 3}
   Rifle: {fileID: 18868471}
+  BugFlowchart: {fileID: 723313917}
+  Running: 0
+  BugCount: 10
+  MonsterCount: 7
 --- !u!1 &1348790588
 GameObject:
   m_ObjectHideFlags: 0

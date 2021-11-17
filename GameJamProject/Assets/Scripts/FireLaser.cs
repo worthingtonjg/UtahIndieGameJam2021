@@ -5,19 +5,21 @@ using UnityEngine;
 public class FireLaser : MonoBehaviour
 {
     public GameObject LaserBullet;
-
-    [SerializeField]
+    public Camera camera;
+    private StartBugRoom StartBugRoomScript;
     private float AimSpeed = 60.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartBugRoomScript = camera.GetComponent<StartBugRoom>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!StartBugRoomScript.Running) {return;}
+
         if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("space")) {
             Instantiate(LaserBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
         }
