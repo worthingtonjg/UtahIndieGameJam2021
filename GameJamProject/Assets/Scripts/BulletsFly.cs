@@ -16,9 +16,9 @@ public class BulletsFly : MonoBehaviour
         var obj = GameObject.Find("Main Camera");
         camera = obj.GetComponent<Camera>();
         StartBugRoomScript = camera.GetComponent<StartBugRoom>();
-        var flowchartArray = GameObject.FindObjectsOfType<Fungus.Flowchart>();
-        Debug.Log("Found " + flowchartArray.Length + " flowcharts");
-        // flowchart = flowchartArray[0];
+        // var flowchartArray = GameObject.FindObjectsOfType<Fungus.Flowchart>();
+        // Debug.Log("Found " + flowchartArray.Length + " flowcharts");
+        // flowchart = flowchartArray[1];
     }
 
     // Update is called once per frame

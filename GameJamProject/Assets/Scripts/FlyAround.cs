@@ -7,7 +7,8 @@ public class FlyAround : MonoBehaviour
     public float BugSpeed = 1.0f;
     private GameObject Rifle;
     private int counter = 0;
-    private Vector3 direction = Vector3.back;
+    private int steps = 0;
+    private float direction = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -17,100 +18,46 @@ public class FlyAround : MonoBehaviour
         {
             Rifle = GameObject.Find("Sci-Fi Rifle_fbx");
         }
+        steps = Random.Range(100, 1000);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (counter > 100)
+        if (counter > steps)
         {
             counter = 0;
-            ChangeDirections(false);
+            steps = Random.Range(100, 1000);
+            direction = ChangeDirection();
+            transform.Rotate(Vector3.up, direction, Space.Self);
         }
         counter++;
-        // if (transform.position.y > 10.0f)
-        // {
-        //     transform.Translate(Vector3.down * BugSpeed * Time.deltaTime, Space.Self);
-        // } else
-        // {
-        //     transform.Translate(direction * BugSpeed * Time.deltaTime, Space.Self);
-        // }
+        float distance = Vector3.Distance (transform.position, Rifle.transform.position);
+        if (distance > 19.0f)
+        {
+            transform.LookAt(Rifle.transform);            
+        } 
+        transform.Translate(Vector3.forward * BugSpeed * Time.deltaTime, Space.Self);
     }
 
-    private void ChangeDirections(bool hitWall)
+    private float ChangeDirection()
     {
-        if (hitWall && Rifle != null)
+        float dir = 0;
+        switch (Random.Range(0,4))
         {
-            direction = Rifle.transform.position;
-        }
-        else
-        {
-            int rand = Random.Range(0,4);
-            switch (rand)
-            {
-                case 0:
-                    // transform.Rotate(90.0f, 0.0f, 0.0f);
-                    if(direction == Vector3.forward)
-                    {
-                        direction = Vector3.right;
-                    } else if (direction == Vector3.right)
-                    {
-                        direction = Vector3.back;
-                    } else if (direction == Vector3.back)
-                    {
-                        direction = Vector3.left;
-                    } else
-                    {
-                        direction = Vector3.forward;
-                    }
-
-                break;
-                case 1:
-                    // transform.Rotate(180.0f, 0.0f, 0.0f);
-                    if(direction == Vector3.forward)
-                    {
-                        direction = Vector3.back;
-                    } else if (direction == Vector3.right)
-                    {
-                        direction = Vector3.left;
-                    } else if (direction == Vector3.back)
-                    {
-                        direction = Vector3.forward;
-                    } else
-                    {
-                        direction = Vector3.right;
-                    }
-                break;
-                case 2:
-                    // transform.Rotate(270.0f, 0.0f, 0.0f);
-                    if(direction == Vector3.forward)
-                    {
-                        direction = Vector3.left;
-                    } else if (direction == Vector3.right)
-                    {
-                        direction = Vector3.forward;
-                    } else if (direction == Vector3.back)
-                    {
-                        direction = Vector3.right;
-                    } else
-                    {
-                        direction = Vector3.back;
-                    }
-                break;
-                case 3:
-                    // transform.Rotate(0.0f, 0.0f, 0.0f);
-                break;
-            }        
-        }
+            case 0:
+                dir = 90;
+            break;
+            case 1:
+                dir = 180;
+            break;
+            case 2:
+                dir = -90;
+            break;
+            case 3:
+                dir = 0;
+            break;
+        } 
+        return dir;       
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Arena")
-        {
-            Debug.Log(gameObject.tag + " hit " + collision.gameObject.tag);
-            ChangeDirections(true);
-        }
-    }
-
 }

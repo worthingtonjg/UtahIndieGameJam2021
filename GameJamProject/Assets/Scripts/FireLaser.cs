@@ -26,22 +26,22 @@ public class FireLaser : MonoBehaviour
 
         if(Input.GetAxis("Horizontal") < 0 || Input.GetAxis("Mouse X") < 0)
         {
-            transform.Rotate(-Vector3.forward * AimSpeed * Time.deltaTime);
+            transform.Rotate(-Vector3.forward * AimSpeed * Time.deltaTime, Space.Self);
         }
 
         if(Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Mouse X") > 0)
         {
-            transform.Rotate(Vector3.forward * AimSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.forward * AimSpeed * Time.deltaTime, Space.Self);
         }
 
         if (Input.GetAxis("Vertical") > 0 || Input.GetAxis("Mouse Y") > 0) 
         {
-            transform.Rotate(Vector3.left * AimSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.left * AimSpeed * Time.deltaTime, Space.Self);
         }
 
         if (Input.GetAxis("Vertical") < 0 || Input.GetAxis("Mouse Y") < 0)
         {
-            transform.Rotate(-Vector3.left * AimSpeed * Time.deltaTime);
+            transform.Rotate(-Vector3.left * AimSpeed * Time.deltaTime, Space.Self);
         }
     }
 }
