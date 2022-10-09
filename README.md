@@ -19,9 +19,6 @@ The theme for this 48 hour game jam was "Reincarnation".  Meet Dr. Strange!  He 
 
 - We won the award for Best Narrative.
 
-#### Github Repo
-- [https://github.com/worthingtonjg/UtahIndieGameJam2021](https://github.com/worthingtonjg/UtahIndieGameJam2021)
-
 #### Play the game
 
 - [https://cypherjw.itch.io/dr-strange](https://cypherjw.itch.io/dr-strange)
