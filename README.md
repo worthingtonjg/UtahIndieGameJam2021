@@ -1,7 +1,5 @@
 ### Dr Strange - 2021 Utah Indie Game Jam Entry 
 
-![drstrange](images/drstrange.png)
-
 The theme for this 48 hour game jam was "Reincarnation".  Meet Dr. Strange!  He is a crazy scientist obsessed with discovering the secret to **reincarnation** at all costs.
 
 #### Challenges
